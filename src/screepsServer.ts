@@ -60,6 +60,7 @@ export default class ScreepsServer extends EventEmitter {
             logdir: path.resolve('server', 'logs'),
             modfile: path.resolve('server', MOD_FILE),
             port:   21025,
+            useAssets: true,
         };
 
         const options = _.defaults(opts, defaults);
@@ -92,11 +93,13 @@ export default class ScreepsServer extends EventEmitter {
         // Ensure directories exist
         await fs.mkdirAsync(this.opts.path).catch(() => {});
         await fs.mkdirAsync(this.opts.logdir).catch(() => {});
-        // Copy assets into server directory
-        await Promise.all([
-            fs.copyAsync(path.join(ASSETS_PATH, DB_FILE), path.join(this.opts.path, DB_FILE)),
-            fs.copyAsync(path.join(ASSETS_PATH, MOD_FILE), path.join(this.opts.path, MOD_FILE)),
-        ]);
+        if(this.opts.useAssets){
+            // Copy assets into server directory
+            await Promise.all([
+                fs.copyAsync(path.join(ASSETS_PATH, DB_FILE), path.join(this.opts.path, DB_FILE)),
+                fs.copyAsync(path.join(ASSETS_PATH, MOD_FILE), path.join(this.opts.path, MOD_FILE)),
+            ]);
+        }
         // Start storage process
         this.emit('info', 'Starting storage process.');
         const library = path.resolve(path.dirname(require.resolve('@screeps/storage')), '../bin/start.js');

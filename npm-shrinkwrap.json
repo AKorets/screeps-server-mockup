@@ -550,7 +550,7 @@
       "integrity": "sha512-RNtIdvtwJHfqkSP07+cv5LQY2jtKoNoca/2rV7NsAN9MmnQutwlpYCKN7J8D02lUlgMiEps0MbVNNgOoj+B4FQ==",
       "requires": {
         "generic-pool": "^3.4.1",
-        "isolated-vm": "^2.0.1",
+        "isolated-vm": "3.3.10",
         "lodash": "^3.10.1",
         "nan": "^2.14.0",
         "node-gyp": "^3.8.0",
