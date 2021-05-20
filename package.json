@@ -3,7 +3,7 @@
   "license": "MIT",
   "author": "Avram Korets <abrasha@gmail.com>",
   "repository": "https://github.com/screepers/screeps-server-mockup",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "main": "dist/src/main.js",
   "types": "dist/src/main.d.ts",
   "scripts": {
